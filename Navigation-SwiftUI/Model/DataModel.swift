@@ -5,8 +5,7 @@
 //  Created by Thiha Ye Yint Aung on 12/3/25.
 //
 
-import Observation
-import Foundation
+import SwiftUI
 
 @Observable
 final class DataModel {
@@ -37,11 +36,11 @@ final class DataModel {
         }
     }
     
-    func recipe(in category: Category) -> [Recipe] {
+    func recipes(in category: Category?) -> [Recipe] {
         recipes.filter { $0.category == category }
     }
     
-    func recipe(relatedTo recipe: Recipe) -> [Recipe] {
+    func recipes(relatedTo recipe: Recipe) -> [Recipe] {
         recipes.filter { recipe.related.contains($0.id) }
     }
     
